@@ -14,3 +14,6 @@ provider "datadog" {
   app_key = var.datadog_app_key
 }
 
+output "datadog_user" {
+  value = "${datadog_user.user.name}"
+}
