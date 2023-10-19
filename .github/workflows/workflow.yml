@@ -8,9 +8,9 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    env:
-      DATADOG_API_KEY: "asdf"
-      DATADOG_APP_KEY: "hjkl"
+    # env:
+    #   DATADOG_API_KEY: "asdf"
+    #   DATADOG_APP_KEY: "hjkl"
 
     steps:
       - name: Checkout code
@@ -30,11 +30,8 @@ jobs:
       - name: Terraform plan
         run: terraform plan -out test
         env:
-          TF_VAR_datadog_api_key: ${{ env.DATADOG_API_KEY }}
-          TF_VAR_datadog_app_key: ${{ env.DATADOG_APP_KEY }}
+          TF_VAR_datadog_api_key: ${{ secrets.DATADOG_API_KEY }}
+          TF_VAR_datadog_app_key: ${{ secrets.DATADOG_APP_KEY }}
 
-      - name: CAT
-        run: cat test
-
-    #   - name: Terraform apply
-    #     run: terraform apply -auto-approve
+      - name: Terraform apply
+        run: terraform apply -auto-approve
