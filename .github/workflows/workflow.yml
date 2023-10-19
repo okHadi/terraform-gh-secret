@@ -25,10 +25,13 @@ jobs:
         run: terraform init
 
       - name: Terraform plan
-        run: terraform plan
+        run: terraform plan -out test
         env:
           TF_VAR_datadog_api_key: ${{ secrets.DATADOG_API_KEY }}
           TF_VAR_datadog_app_key: ${{ secrets.DATADOG_APP_KEY }}
+
+      - name: CAT
+        run: cat test
 
       - name: Terraform apply
         run: terraform apply -auto-approve
