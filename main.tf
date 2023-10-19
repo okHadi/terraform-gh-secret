@@ -11,7 +11,11 @@ variable "datadog_api_key" {
     default = "DEFAULTVALUE"
 }
 
-variable "datadog_app_key" {}
+variable "datadog_app_key" {
+        type = string
+    description = "Datadog APP key"
+    default = "APP KEY DATADOG"
+}
 
 # Configure the Datadog provider
 provider "datadog" {
