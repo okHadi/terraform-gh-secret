@@ -29,3 +29,6 @@ jobs:
         env:
           TF_VAR_datadog_api_key: ${{ secrets.DATADOG_API_KEY }}
         #  TF_VAR_datadog_app_key: ${{ secrets.DATADOG_APP_KEY }}
+
+      - name: Terraform apply
+        run: terraform apply -auto-approve
