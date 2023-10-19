@@ -5,7 +5,11 @@ terraform {
     }
   }
 }
-variable "datadog_api_key" {}
+variable "datadog_api_key" {
+    type = string
+    description = "Datadog API key"
+    default = "DEFAULTVALUE"
+}
 
 variable "datadog_app_key" {}
 
